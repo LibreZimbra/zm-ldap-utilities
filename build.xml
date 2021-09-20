@@ -85,24 +85,6 @@
       <param name="base.dir" value="${dist.dir}"/>
     </antcall>
   </target>
-  <target name="generate-buildinfo" depends="build-init">
-    <mkdir dir="${build.dir}/buildinfo/com/zimbra/cs/util"/>
-    <echo file="${build.dir}/buildinfo/com/zimbra/cs/util/BuildInfoGenerated.java">
-            package com.zimbra.cs.util;
-
-            class BuildInfoGenerated {
-                public static final String MAJORVERSION = "${zimbra.buildinfo.majorversion}";
-                public static final String MINORVERSION = "${zimbra.buildinfo.minorversion}";
-                public static final String MICROVERSION = "${zimbra.buildinfo.microversion}";
-                public static final String RELCLASS = "${zimbra.buildinfo.relclass}";
-                public static final String RELNUM = "${zimbra.buildinfo.relnum}";
-                public static final String BUILDNUM = "${zimbra.buildinfo.buildnum}";
-                public static final String VERSION = "${zimbra.buildinfo.version}";
-                public static final String TYPE = "LIBRE";
-            }
-    </echo>
-    <javac includeantruntime="false" destdir="${build.classes.dir}" debug="true" target="${javac.target}" srcdir="${build.dir}/buildinfo"/>
-  </target>
   <target name="generate-getters" depends="compile,resolve" description="generate methods for attributes in zimbra-attrs.xml">
     <antcall target="generate-getter">
       <param name="getter.class" value="account"/>
@@ -164,7 +146,7 @@
       <arg line="-a generateProvisioning -i ${attr.config.dir}/attrs -r ${common.src.java.dir}/com/zimbra/common/account/ZAttrProvisioning.java"/>
     </java>
   </target>
-  <target name="jar" depends="generate-buildinfo,compile" description="Creates the jar file">
+  <target name="jar" depends="compile" description="Creates the jar file">
     <antcall target="zimbra-jar">
       <param name="implementation.title" value="Zimbra Server"/>
     </antcall>
