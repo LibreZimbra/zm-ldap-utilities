@@ -6,9 +6,14 @@ Standards-Version: 3.9.6
 Maintainer: Enrico Weigelt, metux IT consult <info@metux.net>
 Uploaders: Enrico Weigelt, metux IT consult <info@metux.net>
 
-Package: zimbra-ldap-utilities
+Package: zimbra-ldap
 Section: mail
 Priority: optional
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Depends: ${shlibs:Depends}, ${misc:Depends}, zimbra-core, zimbra-ldap-base,
+  zimbra-lmdb (>= 2.4.46-1zimbra8.7b3ZAPPEND),
+  zimbra-openldap-server (>= 2.4.46-1zimbra8.7b3ZAPPEND),
+  zimbra-openssl (>= 1.1.1k-1zimbra8.7b4ZAPPEND),
+  zimbra-openssl-lib (>= 1.1.1k-1zimbra8.7b4ZAPPEND),
+  zimbra-core-components (>= 3.0.8-1zimbra8.8b1ZAPPEND)
 Description: LibreZimbra LDAP utilities
