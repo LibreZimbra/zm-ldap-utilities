@@ -10,7 +10,7 @@ Package: zimbra-ldap
 Section: mail
 Priority: optional
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, zimbra-core, zimbra-ldap-base,
+Depends: ${shlibs:Depends}, ${misc:Depends}, zimbra-core,
   zimbra-lmdb (>= 2.4.46-1zimbra8.7b3ZAPPEND),
   zimbra-openldap-server (>= 2.4.46-1zimbra8.7b3ZAPPEND),
   zimbra-openssl (>= 1.1.1k-1zimbra8.7b4ZAPPEND),
