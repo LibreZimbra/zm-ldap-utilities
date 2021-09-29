@@ -12,6 +12,5 @@ Priority: optional
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, zimbra-core,
   zimbra-lmdb (>= 2.4.46-1zimbra8.7b3ZAPPEND),
-  zimbra-openldap-server (>= 2.4.46-1zimbra8.7b3ZAPPEND),
-  zimbra-core-components (>= 3.0.8-1zimbra8.8b1ZAPPEND)
+  zimbra-openldap-server (>= 2.4.46-1zimbra8.7b3ZAPPEND)
 Description: LibreZimbra LDAP utilities
