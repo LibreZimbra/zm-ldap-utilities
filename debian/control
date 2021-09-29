@@ -1,7 +1,7 @@
 Source: zimbra-ldap
 Section: mail
 Priority: optional
-Build-Depends: debhelper (>=9)
+Build-Depends: debhelper (>=9), ant
 Standards-Version: 3.9.6
 Maintainer: Enrico Weigelt, metux IT consult <info@metux.net>
 Uploaders: Enrico Weigelt, metux IT consult <info@metux.net>

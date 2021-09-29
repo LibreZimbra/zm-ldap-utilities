@@ -1,19 +1,6 @@
 #!/usr/bin/make -f
 
-ZIMBRA_MAJOR := $(shell cat ../zm-build/RE/MAJOR)
-ZIMBRA_MINOR := $(shell cat ../zm-build/RE/MINOR)
-ZIMBRA_MICRO := $(shell cat ../zm-build/RE/RELEASE)
-ZIMBRA_PATCH := $(shell cat ../zm-build/RE/BUILD)
-
 # export DH_VERBOSE = 1
 
-debian/changelog:	debian/changelog.in
-	@cat $< | sed -e 's~@@VERSION_MAJOR@@~$(ZIMBRA_MAJOR)~g;' \
-	        | sed -e 's~@@VERSION_MINOR@@~$(ZIMBRA_MINOR)~g;' \
-	        | sed -e 's~@@VERSION_MICRO@@~$(ZIMBRA_MICRO)~g;' \
-	        | sed -e 's~@@VERSION_PATCH@@~$(ZIMBRA_PATCH)~g;' \
-	        > $@
-
 %:
-	$(MAKE) debian/changelog
 	dh $@
