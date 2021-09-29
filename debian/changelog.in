@@ -1,4 +1,4 @@
-zimbra-ldap-utilities (@@VERSION_MAJOR@@.@@VERSION_MINOR@@.@@VERSION_MICRO@@-@@VERSION_PATCH@@) stable; urgency=medium
+zimbra-ldap (@@VERSION_MAJOR@@.@@VERSION_MINOR@@.@@VERSION_MICRO@@-@@VERSION_PATCH@@) stable; urgency=medium
 
   * Release - @@VERSION_MAJOR@@.@@VERSION_MINOR@@.@@VERSION_MICRO@@
 

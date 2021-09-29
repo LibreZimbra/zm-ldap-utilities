@@ -1,4 +1,4 @@
-Source: zimbra-ldap-utilities
+Source: zimbra-ldap
 Section: mail
 Priority: optional
 Build-Depends: debhelper (>=9)
