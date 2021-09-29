@@ -183,24 +183,6 @@
 
     <echo message="Using version from ${zimbra.version.dir}, ${zimbra.buildinfo.version}"/>
 
-    <propertyregex property="zimbra.buildinfo.majorversion"
-                   input="${zimbra.buildinfo.version}"
-                   regexp="([0-9]+)\.([0-9]+)\.([0-9]+)"
-                   select="\1"
-                   casesensitive="false" />
-
-    <propertyregex property="zimbra.buildinfo.minorversion"
-                   input="${zimbra.buildinfo.version}"
-                   regexp="([0-9]+)\.([0-9]+)\.([0-9]+)"
-                   select="\2"
-                   casesensitive="false" />
-
-    <propertyregex property="zimbra.buildinfo.relclass"
-                   input="${zimbra.buildinfo.version}"
-                   regexp="([0-9]+)\.([0-9]+)\.([0-9]+)_([A-Z]+)"
-                   select="\4"
-                   casesensitive="false" />
-
     <condition property="zimbra.buildinfo.relnum" value="0">
         <not><isset property="${zimbra.buildinfo.relnum}"/></not>
     </condition>
