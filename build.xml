@@ -1,5 +1,5 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="zm-ldap-utilities" default="jar">
-  <import file="../zm-zcs/ant-global.xml"/>
+  <import file="ant-global.xml"/>
   <property name="service.webapp.dir" location="${jetty.webapps.dir}/service"/>
   <property name="zimbra.webapp.dir" location="${jetty.webapps.dir}/zimbra"/>
   <property name="zimbra-admin.webapp.dir" location="${jetty.webapps.dir}/zimbraAdmin"/>
