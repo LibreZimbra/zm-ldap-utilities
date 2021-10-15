@@ -185,6 +185,7 @@
   </target>
   
   <target name="generate-ldap-config" depends="resolve">
+    <mkdir dir="${attr.config.dir}/attrs"/>
     <dependset>
       <srcfileset dir="${attr.config.dir}/attrs" includes="*.xml"/>
       <targetfileset dir="${build.dir}/ldap-config" includes="*"/>
