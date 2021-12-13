@@ -18,9 +18,6 @@ install:
 
 	mkdir -p $(DESTDIR)/etc/sudoers.d/
 
-	$(call install_conf, conf/zmconfigd.cf)
-	$(call install_conf, conf/zmconfigd.log4j.properties)
-
 	cp conf/externaldirsync/*.xml      $(INSTALL_DIR)/conf/externaldirsync
 	cp src/ldap/migration/*.pl         $(INSTALL_DIR)/libexec/scripts
 	cp src/libexec/zm*                 $(INSTALL_DIR)/libexec
