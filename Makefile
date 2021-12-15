@@ -15,12 +15,14 @@ install:
 	$(call mk_install_dir, conf/externaldirsync)
 	$(call mk_install_dir, libexec/scripts)
 	$(call mk_install_dir, common/etc/openldap)
+	$(call mk_install_dir, bin)
 
 	mkdir -p $(DESTDIR)/etc/sudoers.d/
 
 	cp conf/externaldirsync/*.xml      $(INSTALL_DIR)/conf/externaldirsync
 	cp src/ldap/migration/*.pl         $(INSTALL_DIR)/libexec/scripts
 	cp src/libexec/zm*                 $(INSTALL_DIR)/libexec
+	cp src/bin/*                       $(INSTALL_DIR)/bin
 	cp -r build/ldap-config/*          $(INSTALL_DIR)/common/etc/openldap
 	cp etc/sudoers.d/02_zimbra-ldap    $(DESTDIR)/etc/sudoers.d
 	chmod 440 $(DESTDIR)/etc/sudoers.d/02_zimbra-ldap
