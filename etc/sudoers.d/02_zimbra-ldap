@@ -1,1 +1,1 @@
-%zimbra ALL=NOPASSWD:/opt/zimbra/libexec/zmslapd
+%zimbra ALL=NOPASSWD:/opt/zimbra/common/libexec/slapd

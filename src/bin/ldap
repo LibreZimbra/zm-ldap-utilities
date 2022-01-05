@@ -70,7 +70,7 @@ checkListening()
 
 doDebugStart() {
     TIMEOUT=60 # timelimit for command
-    sudo /opt/zimbra/libexec/zmslapd -l LOCAL0 -u zimbra -h "${bind_url} ldapi:///" \
+    sudo /opt/zimbra/common/libexec/slapd -l LOCAL0 -u zimbra -h "${bind_url} ldapi:///" \
             -F /opt/zimbra/data/ldap/config -d 1 2>&1 | grep -e "failed" -e "error" &
     cmd_pid=$!
     sleep $TIMEOUT | (
@@ -101,7 +101,7 @@ start()
         checkrunning
         if [ $RUNNING = 0 ]; then
             if ((i % 5 == 0)); then
-                sudo /opt/zimbra/libexec/zmslapd -l LOCAL0 \
+                sudo /opt/zimbra/common/libexec/slapd -l LOCAL0 \
                 -u zimbra -h "${bind_url} ldapi:///" -F /opt/zimbra/data/ldap/config
             fi
         else
