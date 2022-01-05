@@ -19,5 +19,4 @@
 ulimit -n 32768
 ulimit -c unlimited
 ulimit -v unlimited
-export LD_PRELOAD=/opt/zimbra/common/lib/libtcmalloc_minimal.so
 exec /opt/zimbra/common/libexec/slapd "$@"
