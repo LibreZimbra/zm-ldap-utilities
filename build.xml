@@ -1,5 +1,6 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="zm-ldap-utilities" default="jar">
 
+  <property name="is-production" value="1" />
   <property name="zimbra.buildinfo.version"
             value="${zimbra.buildinfo.versionmajor}.${zimbra.buildinfo.versionminor}.${zimbra.buildinfo.versionmicro}"/>
 
