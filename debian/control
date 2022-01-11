@@ -14,5 +14,5 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, zimbra-base,
   zimbra-lmdb (>= 2.4.46-1zimbra8.7b3ZAPPEND),
   zimbra-openldap-server (>= 2.4.46-1zimbra8.7b3ZAPPEND),
-  zimbra-openldap-client
+  zimbra-openldap-client, uuid
 Description: LibreZimbra LDAP server
