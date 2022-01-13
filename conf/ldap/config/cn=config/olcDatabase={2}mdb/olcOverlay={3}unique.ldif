@@ -1,7 +1,7 @@
-dn: olcOverlay={1}unique
+dn: olcOverlay={3}unique
 objectClass: olcOverlayConfig
 objectClass: olcUniqueConfig
-olcOverlay: {1}unique
+olcOverlay: {3}unique
 olcUniqueURI: ldap:///?mail?sub
 olcUniqueURI: ldap:///?zimbraId?sub
 olcUniqueURI: ldap:///?DKIMSelector?sub

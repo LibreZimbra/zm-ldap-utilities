@@ -1,0 +1,7 @@
+dn: olcOverlay={0}syncprov
+objectClass: olcOverlayConfig
+objectClass: olcSyncProvConfig
+olcOverlay: {0}syncprov
+olcSpCheckpoint: 20 10
+olcSpSessionlog: 10000000
+structuralObjectClass: olcSyncProvConfig

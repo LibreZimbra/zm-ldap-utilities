@@ -1,4 +1,4 @@
-dn: olcOverlay={2}noopsrch
+dn: olcOverlay={4}noopsrch
 objectClass: olcOverlayConfig
-olcOverlay: {2}noopsrch
+olcOverlay: {4}noopsrch
 structuralObjectClass: olcOverlayConfig

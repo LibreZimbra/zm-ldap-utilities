@@ -1,0 +1,9 @@
+dn: olcOverlay={1}accesslog
+objectClass: olcOverlayConfig
+objectClass: olcAccessLogConfig
+olcOverlay: {1}accesslog
+olcAccessLogDB: cn=accesslog
+olcAccessLogOps: writes
+olcAccessLogPurge: 01+00:00  00+04:00
+olcAccessLogSuccess: TRUE
+structuralObjectClass: olcAccessLogConfig

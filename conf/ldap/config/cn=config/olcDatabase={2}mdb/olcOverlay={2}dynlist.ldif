@@ -1,6 +1,6 @@
-dn: olcOverlay={0}dynlist
+dn: olcOverlay={2}dynlist
 objectClass: olcOverlayConfig
 objectClass: olcDynamicList
-olcOverlay: {0}dynlist
+olcOverlay: {2}dynlist
 olcDlAttrSet: {0}groupOfURLs memberURL member
 structuralObjectClass: olcDynamicList

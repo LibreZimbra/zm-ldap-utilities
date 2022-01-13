@@ -1,0 +1,7 @@
+dn: olcOverlay={0}syncprov
+objectClass: olcOverlayConfig
+objectClass: olcSyncProvConfig
+olcOverlay: {0}syncprov
+olcSpNoPresent: TRUE
+olcSpReloadHint: TRUE
+structuralObjectClass: olcSyncProvConfig
