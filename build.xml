@@ -1,21 +1,11 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="zm-ldap-utilities" default="jar">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="zm-ldap-utilities" default="build-dist">
 
   <property name="zimbra.buildinfo.version"
             value="${zimbra.buildinfo.versionmajor}.${zimbra.buildinfo.versionminor}.${zimbra.buildinfo.versionmicro}"/>
 
   <import file="ant-global.xml"/>
-  <property name="service.webapp.dir" location="${jetty.webapps.dir}/service"/>
-  <property name="zimbra.webapp.dir" location="${jetty.webapps.dir}/zimbra"/>
-  <property name="zimbra-admin.webapp.dir" location="${jetty.webapps.dir}/zimbraAdmin"/>
   <property name="attr.config.dir" location="../zm-mailbox/store/conf"/>
   <property name="config.dir" location="conf"/>
-  <property name="warfilename" value="service.war"/>
-  <property name="warfile" location="${build.dir}/${warfilename}"/>
-  <condition property="war.web.xml" value="${config.dir}/web.xml">
-    <not>
-      <isset property="war.web.xml"/>
-    </not>
-  </condition>
   <!-- properties used for generating and testing LDAP changes -->
   <property name="ldap.config.dir" location="conf/ldap"/>
   <property name="slapd.config.dir" value="${ldap.config.dir}/config"/>
@@ -30,108 +20,13 @@
     <pathelement location="${build.classes.dir}"/>
     <pathelement location="/opt/zimbra/lib/jars/commons-codec-1.14.jar"/>
   </path>
-  <target name="make-dirs">
-    <!-- take advantage of the fact that mkdir uses File.mkdirs() and creates inbetween dirs -->
-    <echo>Creating dirs under ${base.dir}</echo>
-    <mkdir dir="${base.dir}/${slapd.conf.dir}"/>
-    <mkdir dir="${base.dir}/${slapd.etc.dir}/schema"/>
-    <mkdir dir="${base.dir}/bin"/>
-    <mkdir dir="${base.dir}/conf/msgs"/>
-    <mkdir dir="${base.dir}/db"/>
-    <mkdir dir="${base.dir}/lib/ext"/>
-    <mkdir dir="${base.dir}/lib/jars"/>
-    <mkdir dir="${base.dir}/lib/jars-ant"/>
-    <mkdir dir="${base.dir}/libexec"/>
-  	<mkdir dir="${build.dir}/dist"/>
-  </target>
-  <target name="build-init" description="Creates directories required for compiling">
-    <mkdir dir="${build.classes.dir}"/>
-    <mkdir dir="${build.dir}/data"/>
-    <antcall target="make-dirs">
-      <param name="base.dir" value="${dist.dir}"/>
-    </antcall>
-  </target>
-  <target name="generate-getters" depends="compile,resolve" description="generate methods for attributes in zimbra-attrs.xml">
-    <antcall target="generate-getter">
-      <param name="getter.class" value="account"/>
-      <param name="getter.output" value="ZAttrAccount.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="calendarResource"/>
-      <param name="getter.output" value="ZAttrCalendarResource.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="cos"/>
-      <param name="getter.output" value="ZAttrCos.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="domain"/>
-      <param name="getter.output" value="ZAttrDomain.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="server"/>
-      <param name="getter.output" value="ZAttrServer.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="ucService"/>
-      <param name="getter.output" value="ZAttrUCService.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="globalConfig"/>
-      <param name="getter.output" value="ZAttrConfig.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="distributionList"/>
-      <param name="getter.output" value="ZAttrDistributionList.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="group"/>
-      <param name="getter.output" value="ZAttrDynamicGroup.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="shareLocator"/>
-      <param name="getter.output" value="ZAttrShareLocator.java"/>
-    </antcall>
-    <antcall target="generate-getter">
-      <param name="getter.class" value="alwaysOnCluster"/>
-      <param name="getter.output" value="ZAttrAlwaysOnCluster.java"/>
-    </antcall>
-    <antcall target="generate-provisioning"/>
-  </target>
-  <target name="generate-getter">
-    <ivy:cachepath pathid="class.path"/>
-    <java classname="com.zimbra.cs.account.AttributeManagerUtil" fork="true" classpathref="run.class.path" failonerror="true">
-      <sysproperty key="zimbra.version" value="${zimbra.buildinfo.all}"/>
-      <arg line="-a generateGetters -c ${getter.class} -i ${attr.config.dir}/attrs -r ${src.java.dir}/com/zimbra/cs/account/${getter.output}"/>
-    </java>
-  </target>
-  <target name="generate-provisioning">
-    <ivy:cachepath pathid="class.path"/>
-    <java classname="com.zimbra.cs.account.AttributeManagerUtil" fork="true" classpathref="run.class.path" failonerror="true">
-      <sysproperty key="zimbra.version" value="${zimbra.buildinfo.all}"/>
-      <arg line="-a generateProvisioning -i ${attr.config.dir}/attrs -r ${common.src.java.dir}/com/zimbra/common/account/ZAttrProvisioning.java"/>
-    </java>
-  </target>
-  <target name="jar" depends="compile" description="Creates the jar file">
-    <antcall target="zimbra-jar">
-      <param name="implementation.title" value="Zimbra Server"/>
-    </antcall>
-  </target>
+
+  <target name="jar" description="dummy" />
+
   <target name="clean" description="Deletes classes from build directories">
     <delete dir="${build.dir}"/>
   </target>
-  <target name="copy-war">
-    <delete dir="${jetty.home.dir}/webapps/service"/>
-    <delete file="${jetty.home.dir}/webapps/${warfilename}"/>
-    <copy file="${warfile}" todir="${jetty.home.dir}/webapps"/>
-    <mkdir dir="${jetty.home.dir}/webapps/service"/>
-    <chmod file="${jetty.home.dir}/webapps/service" perm="o+rwx"/>
-    <chmod file="${jetty.home.dir}/webapps/service" perm="g+rx"/>
-    <chmod file="${jetty.home.dir}/webapps/service" perm="o-rwx"/>
-    <unzip dest="${jetty.home.dir}/webapps/service" src="${jetty.home.dir}/webapps/${warfilename}"/>
-    <delete file="${jetty.home.dir}/webapps/${warfilename}"/>
-  </target>
-  
+
   <target name="generate-ldap-config" depends="resolve">
     <mkdir dir="${attr.config.dir}/attrs"/>
     <dependset>
@@ -187,9 +82,6 @@
      <copy todir="${build.dir}/ldap-config/config/cn=config/olcDatabase={2}mdb" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb/olcOverlay={0}dynlist.ldif"/>
      <copy todir="${build.dir}/ldap-config/config/cn=config/olcDatabase={2}mdb" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb/olcOverlay={1}unique.ldif"/>
      <copy todir="${build.dir}/ldap-config/config/cn=config/olcDatabase={2}mdb" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb/olcOverlay={2}noopsrch.ldif"/>
-  
-  	 <!--schema -->
-
   </target>
 
  <target name="build-dist" depends="generate-ldap-config">
@@ -198,4 +90,3 @@
  	    </copy>
  </target>
 </project>
-
