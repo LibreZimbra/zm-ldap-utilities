@@ -73,15 +73,9 @@
   	 <copy todir="${build.dir}/ldap-config/schema" file="${config.dir}/ldap/opendkim.ldif"/>
 
      <copy todir="${build.dir}/ldap-config/config" file="${slapd.config.src}"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config" file="${slapd.config.dir}/cn=config/cn=module{0}.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config" file="${slapd.config.dir}/cn=config/cn=schema.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config" file="${slapd.config.dir}/cn=config/olcDatabase={0}config.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config" file="${slapd.config.dir}/cn=config/olcDatabase={-1}frontend.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config" file="${slapd.config.dir}/cn=config/olcDatabase={1}monitor.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config/" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config/olcDatabase={2}mdb" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb/olcOverlay={0}dynlist.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config/olcDatabase={2}mdb" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb/olcOverlay={1}unique.ldif"/>
-     <copy todir="${build.dir}/ldap-config/config/cn=config/olcDatabase={2}mdb" file="${slapd.config.dir}/cn=config/olcDatabase={2}mdb/olcOverlay={2}noopsrch.ldif"/>
+     <copy todir="${build.dir}/ldap-config/config/" >
+        <fileset dir="${slapd.config.dir}" includes="**"/>
+     </copy>
   </target>
 
  <target name="build-dist" depends="generate-ldap-config">
