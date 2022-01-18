@@ -8,9 +8,3 @@ olcReadOnly: FALSE
 olcRootDN: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
 olcMonitoring: FALSE
 structuralObjectClass: olcDatabaseConfig
-entryUUID: 152a93d4-333e-102d-86fe-d562901af228
-creatorsName: cn=config
-createTimestamp: 20081020215916Z
-entryCSN: 20081020215916.275992Z#000000#000#000000
-modifiersName: cn=config
-modifyTimestamp: 20081020215916Z

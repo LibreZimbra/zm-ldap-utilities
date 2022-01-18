@@ -92,9 +92,3 @@ olcDbMaxsize: 85899345920
 olcDbRtxnSize: 0
 olcDbSearchStack: 16
 structuralObjectClass: olcMdbConfig
-entryUUID: 152ab0a8-333e-102d-8700-d562901af228
-creatorsName: cn=config
-createTimestamp: 20081020215916Z
-entryCSN: 20081020215916.275992Z#000000#000#000000
-modifiersName: cn=config
-modifyTimestamp: 20081020215916Z
