@@ -10,7 +10,6 @@
   <property name="ldap.config.dir" location="conf/ldap"/>
   <property name="slapd.config.dir" value="${ldap.config.dir}/config"/>
   <property name="slapd.config.src" value="${slapd.config.dir}/cn=config.ldif"/>
-  <property name="slapd.conf.src" value="${ldap.config.dir}/slapd.conf"/>
   <property name="slapd.conf.dir" value="conf"/>
   <property name="slapd.etc.dir" value="common/etc/openldap"/>
   <property name="build-dist" value="${build.dir}/dist"/>
