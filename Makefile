@@ -27,8 +27,6 @@ install:
 	cp etc/sudoers.d/02_zimbra-ldap    $(DESTDIR)/etc/sudoers.d
 	chmod 440 $(DESTDIR)/etc/sudoers.d/02_zimbra-ldap
 
-	$(call install_conf, conf/ldap/slapd.conf)
-
 	cp build/dist/schema/zimbra.ldif $(INSTALL_DIR)/common/etc/openldap/schema
 
 clean:

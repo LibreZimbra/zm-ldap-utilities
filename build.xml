@@ -67,7 +67,6 @@
 
         <copy todir="${build.dir}/ldap-config" file="${config.dir}/ldap/zimbra.ldif"/>
         <copy todir="${build.dir}/ldap-config" file="${config.dir}/ldap/zimbra_mimehandlers.ldif"/>
-        <copy todir="${build.dir}/ldap-config/schema" file="${config.dir}/ldap/amavisd.schema"/>
         <copy todir="${build.dir}/ldap-config/schema" file="${config.dir}/ldap/amavisd.ldif"/>
         <copy todir="${build.dir}/ldap-config/schema" file="${config.dir}/ldap/opendkim.ldif"/>
 
