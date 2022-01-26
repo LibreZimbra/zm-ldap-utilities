@@ -3,7 +3,7 @@
     <property name="zimbra.buildinfo.version"
             value="${zimbra.buildinfo.versionmajor}.${zimbra.buildinfo.versionminor}.${zimbra.buildinfo.versionmicro}"/>
 
-    <import file="ant-global.xml"/>
+    <import file="/opt/zimbra/include/build/ant-global.xml"/>
     <property name="attr.config.dir" location="../zm-mailbox/store/conf"/>
     <property name="config.dir" location="conf"/>
     <!-- properties used for generating and testing LDAP changes -->
