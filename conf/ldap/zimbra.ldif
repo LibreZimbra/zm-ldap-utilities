@@ -146,3 +146,10 @@ cn: globalgrant
 dn: cn=sharelocators,cn=zimbra
 objectclass: organizationalRole
 cn: sharelocators
+
+# global config object
+dn: cn=config,cn=zimbra
+objectclass: zimbraGlobalConfig
+objectclass: organizationalRole
+cn: config
+zimbraLDAPSchemaVersion: 1
