@@ -221,6 +221,13 @@ zm_configure_mmr() {
     shift
     shift
     zm_ldap_setpass "$ZM_LDAP_REPLICATION_DN" "$bindpw"
+
+    # fixme: only enable mmr when more than one node
+    if [ ! "$2" ]; then
+        zm_log_info "only one node. mmr disabled"
+        return 0
+    fi
+
     (
         echo "dn: $base"
         echo "changetype: modify"
