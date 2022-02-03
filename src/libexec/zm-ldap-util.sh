@@ -199,19 +199,6 @@ zm_ldap_maindb_dn() {
     return $?
 }
 
-zm_ldap_setpass() {
-    local user="$1"
-    local pass="$2"
-    local hashed=`$ZIMBRA_ROOT/common/sbin/slappasswd -s $pass`
-
-    (
-        echo "dn: $user"
-        echo "changetype: modify"
-        echo "replace: userPassword"
-        echo "userPassword: $hashed"
-    ) | zm_ldapmodify
-}
-
 zm_configure_mmr() {
     local rid=1
     local base=`zm_ldap_maindb_dn`
