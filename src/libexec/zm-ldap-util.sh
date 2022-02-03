@@ -167,6 +167,28 @@ zm_ldap_setpass() {
     return $?
 }
 
+zm_ldap_set_globalconf() {
+    local attr="$1"
+    local val="$2"
+
+    if [ ! "$val" ]; then
+        zm_log_info "removing global config: $attr"
+        (
+            echo "dn: cn=config,cn=zimbra"
+            echo "changetype: modify"
+            echo "delete: $attr"
+        ) | zm_ldapmodify
+    else
+        zm_log_info "setting global config: $attr = $val"
+        (
+            echo "dn: cn=config,cn=zimbra"
+            echo "changetype: modify"
+            echo "replace: $attr"
+            echo "$attr: $val"
+        ) | zm_ldapmodify
+    fi
+}
+
 zm_ldap_set_serverid() {
     local server_id="$1"
 
